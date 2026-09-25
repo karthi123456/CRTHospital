@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CRT Hospital · Pappammalpuram</title>
+<meta name="description" content="CRT Hospital — a charitable trust hospital serving Pappammalpuram, T.V. Renganathapuram and nearby villages in Tamil Nadu. Open Monday to Saturday." />
+<meta name="theme-color" content="#0b3a39" />
+<meta property="og:title" content="CRT Hospital · Pappammalpuram" />
+<meta property="og:description" content="A charitable trust hospital serving Pappammalpuram and nearby villages." />
+<meta property="og:image" content="images/pro/building.webp" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="images/pro/building.webp" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hospital",
+  "name": "CRT Hospital",
+  "image": "images/pro/building.webp",
+  "address": { "@type": "PostalAddress", "streetAddress": "Pappammalpuram via T.V. Renganathapuram", "addressRegion": "Tamil Nadu", "postalCode": "625536", "addressCountry": "IN" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "07:00", "closes": "19:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "19:00" }
+  ]
+}
+</script>
+<style>
+  :root {
+    --navy: #0b3a39; --teal: #0f6663; --teal-2: #14857f; --mint: #e7f4f1;
+    --bg: #f6f8f7; --paper: #ffffff; --line: #e3ebe8;
+    --gold: #f2a93b; --rose: #d9557a;
+    --ink: #10201f; --muted: #52625f;
+    --radius: 20px;
+    --shadow-sm: 0 2px 6px rgba(11,58,57,.06), 0 12px 28px -14px rgba(11,58,57,.22);
+    --shadow: 0 30px 60px -30px rgba(11,58,57,.45);
+    --ease: cubic-bezier(.77, 0, .18, 1);
+    --ease-out: cubic-bezier(.16, 1, .3, 1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3 { line-height: 1.12; letter-spacing: -.02em; font-weight: 800; }
+  .ta { font-family: "Noto Sans Tamil", sans-serif; }
+  .wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
+  section { padding: 96px 0; position: relative; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-2); }
+  .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--gold); }
+  .h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); color: var(--navy); margin: 12px 0 14px; }
+  .lead { font-size: 1.08rem; color: var(--muted); max-width: 58ch; }
+  .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+
+  /* ---------- Buttons ---------- */
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 12px; font-weight: 700; font-size: .95rem; border: 0; cursor: pointer; font-family: inherit; transition: transform .35s var(--ease-out), box-shadow .35s, background .3s, color .3s; }
+  .btn svg { width: 18px; height: 18px; transition: transform .35s var(--ease-out); }
+  .btn:hover svg { transform: translateX(4px); }
+  .btn-primary { background: var(--teal); color: #fff; box-shadow: 0 14px 28px -14px rgba(15,102,99,.9); }
+  .btn-primary:hover { background: var(--navy); transform: translateY(-2px); }
+  .btn-gold { background: var(--gold); color: var(--navy); box-shadow: 0 14px 28px -12px rgba(242,169,59,.8); }
+  .btn-gold:hover { transform: translateY(-2px); background: #f7b957; }
+  .btn-light { background: rgba(255,255,255,.12); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.6); backdrop-filter: blur(8px); }
+  .btn-light:hover { background: #fff; color: var(--navy); transform: translateY(-2px); }
+  .btn-outline { background: #fff; color: var(--navy); box-shadow: inset 0 0 0 1.5px var(--line); }
+  .btn-outline:hover { box-shadow: inset 0 0 0 1.5px var(--teal); transform: translateY(-2px); }
+
+  /* ---------- Top bar + header ---------- */
+  .topbar { background: var(--navy); color: #cfe4e0; font-size: .82rem; font-weight: 600; }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 40px; flex-wrap: wrap; }
+  .topbar .grp { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  .topbar b { color: var(--gold); }
+  .topbar svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; }
+  header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); transition: box-shadow .3s; }
+  header.scrolled { box-shadow: 0 10px 30px -20px rgba(11,58,57,.35); }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.12rem; color: var(--navy); }
+  .brand-mark { width: 44px; height: 44px; border-radius: 12px; background: var(--teal); display: grid; place-items: center; transition: transform .8s var(--ease-out); }
+  .brand:hover .brand-mark { transform: perspective(200px) rotateY(180deg); }
+  .brand-mark svg { width: 22px; height: 22px; }
+  .brand small { display: block; font-weight: 600; font-size: .7rem; color: var(--muted); letter-spacing: .08em; }
+  .menu { display: flex; gap: 6px; list-style: none; }
+  .menu a { position: relative; display: block; padding: 10px 16px; font-weight: 700; font-size: .95rem; color: var(--muted); transition: color .3s; }
+  .menu a::after { content: ""; position: absolute; left: 16px; right: 16px; bottom: 2px; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform .4s var(--ease-out); }
+  .menu a:hover { color: var(--navy); }
+  .menu a.active { color: var(--navy); }
+  .menu a.active::after { transform: scaleX(1); }
+  .burger { display: none; width: 46px; height: 46px; border-radius: 12px; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+  .burger span { display: block; width: 20px; height: 2px; background: var(--navy); margin: 5px auto; transition: transform .4s var(--ease-out), opacity .3s; }
+  body.menu-open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  body.menu-open .burger span:nth-child(2) { opacity: 0; }
+  body.menu-open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ---------- Loader + page transitions ---------- */
+  .loader { position: fixed; inset: 0; z-index: 100; background: var(--navy); display: grid; place-items: center; color: #fff; transition: clip-path 1.1s var(--ease); clip-path: inset(0 0 0 0); }
+  .loader.done { clip-path: inset(0 0 100% 0); }
+  .loader .label { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; text-align: center; letter-spacing: -.02em; }
+  .loader svg { width: min(300px, 70vw); margin: 10px auto 0; }
+  .loader path { stroke-dasharray: 520; stroke-dashoffset: 520; animation: draw 1.4s var(--ease-out) .2s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .sweep { position: fixed; left: 0; top: 0; height: 3px; width: 100%; z-index: 60; background: linear-gradient(90deg, var(--gold), var(--rose)); transform: scaleX(0); }
+  .sweep.run { animation: sweep 1.5s var(--ease) forwards; }
+  @keyframes sweep { 0% { transform: scaleX(0); transform-origin: left; } 50% { transform: scaleX(1); transform-origin: left; } 50.1% { transform-origin: right; } 100% { transform: scaleX(0); transform-origin: right; } }
+  main { perspective: 1600px; }
+  .page { display: none; transform-origin: 50% 20vh; }
+  .page.active { display: block; }
+  .page.leave { animation: pageLeave .6s var(--ease) forwards; }
+  .page.enter { animation: pageEnter 1s var(--ease-out) both; }
+  @keyframes pageLeave { to { opacity: 0; transform: translate3d(0, -30px, -380px) rotateX(14deg); filter: blur(5px); } }
+  @keyframes pageEnter { from { opacity: 0; transform: translate3d(0, 70px, -460px) rotateX(-18deg); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+
+  .rv { opacity: 0; transform: translateY(40px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out); transition-delay: calc(var(--d, 0) * 90ms); }
+  .rv.in { opacity: 1; transform: none; }
+
+  /* ---------- Hero with 3D photo parallax ---------- */
+  .hero { position: relative; height: min(88vh, 820px); min-height: 560px; overflow: hidden; perspective: 1200px; background: var(--navy); padding: 0; }
+  .hero-bg { position: absolute; inset: -6%; transform-style: preserve-3d; will-change: transform; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 58%; animation: heroZoom 2.6s var(--ease-out) both; }
+  @keyframes heroZoom { from { transform: scale(1.25); filter: brightness(.6); } to { transform: scale(1); filter: none; } }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,40,39,.88) 0%, rgba(8,40,39,.62) 38%, rgba(8,40,39,.08) 72%), linear-gradient(0deg, rgba(8,40,39,.55), transparent 35%); pointer-events: none; }
+  .hero-content { position: relative; z-index: 2; height: 100%; display: flex; align-items: center; }
+  .hero-copy { max-width: 620px; color: #fff; }
+  .hero .eyebrow { color: #bfe7e0; }
+  .hero h1 { font-size: clamp(2.5rem, 5.8vw, 4.6rem); margin: 18px 0 8px; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero .ta-name { font-size: clamp(1.05rem, 2.2vw, 1.35rem); color: #ffd79c; margin-bottom: 16px; }
+  .hero .lead { color: #d8ebe7; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .hero-float { position: absolute; z-index: 3; right: max(24px, calc((100vw - 1200px) / 2)); bottom: 120px; display: grid; gap: 14px; transform-style: preserve-3d; will-change: transform; }
+  .fcard { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 16px; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); box-shadow: 0 24px 50px -20px rgba(0,0,0,.5); min-width: 240px; }
+  .fcard b { display: block; font-size: 1.05rem; color: var(--navy); }
+  .fcard small { color: var(--muted); font-weight: 600; font-size: .8rem; }
+  .fcard .ic { width: 44px; height: 44px; border-radius: 12px; margin: 0; }
+  .fcard:nth-child(2) { transform: translateZ(60px) translateX(-40px); }
+  .rise { opacity: 0; transform: translateY(30px); animation: rise 1s var(--ease-out) forwards; animation-delay: calc(var(--d) * 110ms + 700ms); }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #9aa9a7; position: relative; flex: none; }
+  .dot.open { background: #22b573; }
+  .dot.open::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid #22b573; animation: ping 1.8s infinite; }
+  @keyframes ping { from { transform: scale(.6); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+
+  /* ---------- Info strip ---------- */
+  .strip { position: relative; z-index: 5; margin-top: -64px; padding: 0; }
+  .strip .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .strip .item { display: flex; gap: 16px; padding: 28px; border-right: 1px solid var(--line); transition: background .3s; }
+  .strip .item:last-child { border-right: 0; }
+  .strip .item:hover { background: var(--mint); }
+  .strip h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 4px; }
+  .strip p { color: var(--muted); font-size: .93rem; }
+  .ic { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; flex: none; }
+  .ic svg { width: 24px; height: 24px; }
+  .ic-teal { background: var(--mint); color: var(--teal); }
+  .ic-gold { background: #fdf0da; color: #b9741a; }
+  .ic-rose { background: #fbe4ea; color: var(--rose); }
+
+  /* ---------- 3D photos ---------- */
+  .photo3d { perspective: 1200px; }
+  .photo3d .frame { position: relative; border-radius: 22px; transform-style: preserve-3d; transition: transform .6s var(--ease-out); box-shadow: 0 50px 80px -40px rgba(11,58,57,.6); }
+  .photo3d .frame img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 22px; }
+  .photo3d .frame::after { content: ""; position: absolute; inset: 0; border-radius: 22px; pointer-events: none; background: radial-gradient(circle at var(--mx, 30%) var(--my, 20%), rgba(255,255,255,.28), transparent 45%); }
+  .photo3d .back { position: absolute; inset: 18px -18px -18px 18px; border-radius: 22px; background: var(--gold); transform: translateZ(-60px); }
+  .photo3d figcaption { margin-top: 20px; }
+  .photo3d figcaption b { display: block; font-size: 1.2rem; color: var(--navy); }
+  .photo3d figcaption span { color: var(--muted); font-size: .95rem; }
+  .tag { position: absolute; display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 12px; font-weight: 700; font-size: .84rem; color: var(--navy); background: rgba(255,255,255,.94); box-shadow: 0 16px 30px -14px rgba(0,0,0,.45); white-space: nowrap; }
+  .tag i { width: 9px; height: 9px; border-radius: 50%; background: var(--rose); box-shadow: 0 0 0 4px rgba(217,85,122,.2); }
+  .feature { display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: center; }
+  .checks { list-style: none; display: grid; gap: 12px; margin-top: 22px; }
+  .checks li { display: flex; gap: 12px; font-weight: 600; color: var(--ink); }
+  .checks svg { width: 22px; height: 22px; color: var(--teal-2); flex: none; margin-top: 2px; }
+  .photo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  /* ---------- Stats band ---------- */
+  .band { background: var(--navy); color: #fff; padding: 64px 0; overflow: hidden; }
+  .band .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stat b { display: block; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1; font-weight: 800; color: #fff; }
+  .stat span { color: #a9cbc5; font-weight: 600; font-size: .92rem; }
+  .stat { border-left: 2px solid var(--gold); padding-left: 18px; }
+
+  /* ---------- 3D campus viewer ---------- */
+  .viewer { position: relative; height: 560px; border-radius: 28px; overflow: hidden; background: linear-gradient(180deg, #cfe9e3, #f7efe0); box-shadow: var(--shadow); cursor: grab; touch-action: pan-y; }
+  .viewer:active { cursor: grabbing; }
+  .viewer canvas { display: block; width: 100%; height: 100%; }
+  .viewer .hint { position: absolute; left: 20px; bottom: 20px; display: flex; gap: 10px; align-items: center; padding: 10px 16px; border-radius: 12px; background: rgba(255,255,255,.92); font-weight: 700; font-size: .85rem; color: var(--navy); box-shadow: var(--shadow-sm); }
+  .viewer .hint svg { width: 18px; height: 18px; }
+  .viewer .legend { position: absolute; right: 20px; top: 20px; display: grid; gap: 8px; }
+  .viewer .legend span { display: flex; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,.9); font-weight: 700; font-size: .8rem; color: var(--navy); }
+  .viewer .legend i { width: 10px; height: 10px; border-radius: 3px; }
+  .no3d .viewer { display: none; }
+
+  /* ---------- Gallery ring ---------- */
+  .gallery { background: linear-gradient(180deg, var(--bg), #eaf2ef); }
+  .stage { height: 460px; perspective: 1500px; position: relative; cursor: grab; user-select: none; touch-action: pan-y; }
+  .stage:active { cursor: grabbing; }
+  .ring { position: absolute; left: 50%; top: 50%; width: 300px; height: 380px; margin: -190px 0 0 -150px; transform-style: preserve-3d; }
+  .slide { position: absolute; inset: 0; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(11,58,57,.7); background: var(--navy); backface-visibility: hidden; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; }
+  .slide figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 50px 18px 16px; color: #fff; font-weight: 700; background: linear-gradient(transparent, rgba(8,40,39,.9)); }
+  .gal-ctrl { display: flex; gap: 10px; }
+  .gal-ctrl button { width: 50px; height: 50px; border-radius: 14px; border: 1px solid var(--line); cursor: pointer; background: #fff; color: var(--navy); display: grid; place-items: center; transition: transform .3s var(--ease-out), background .3s, color .3s; }
+  .gal-ctrl button:hover { background: var(--teal); color: #fff; transform: translateY(-2px); }
+  .gal-ctrl svg { width: 20px; height: 20px; }
+
+  /* ---------- Cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; perspective: 1000px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; perspective: 1000px; }
+  .card { position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow-sm); transform-style: preserve-3d; transition: transform .5s var(--ease-out), box-shadow .5s, border-color .4s; }
+  .card:hover { border-color: #bfded8; box-shadow: var(--shadow); }
+  .card > * { position: relative; }
+  .card .shine { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; transform: none; background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(20,133,127,.1), transparent 55%); opacity: 0; transition: opacity .4s; }
+  .card:hover .shine { opacity: 1; }
+  .card h3 { font-size: 1.2rem; color: var(--navy); margin: 16px 0 8px; }
+  .card p { color: var(--muted); }
+  .num { display: inline-block; font-weight: 800; color: var(--gold); font-size: .95rem; letter-spacing: .08em; }
+  .value { display: flex; gap: 18px; }
+  .value h3 { margin-top: 0; }
+
+  .cta { background: linear-gradient(120deg, var(--teal), var(--navy)); border-radius: 28px; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; color: #fff; position: relative; overflow: hidden; box-shadow: var(--shadow); }
+  .cta h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); max-width: 20ch; }
+  .cta p { color: #cfe4e0; margin-top: 8px; }
+  .cta::before { content: ""; position: absolute; right: -80px; top: -120px; width: 320px; height: 320px; border-radius: 50%; border: 48px solid rgba(242,169,59,.18); }
+
+  /* ---------- Sub-page banner ---------- */
+  .banner { position: relative; padding: 0; height: 420px; overflow: hidden; background: var(--navy); perspective: 1000px; }
+  .banner img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; will-change: transform; }
+  .banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,40,39,.9), rgba(8,40,39,.45) 60%, rgba(8,40,39,.2)); }
+  .banner .wrap { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center; color: #fff; }
+  .banner .eyebrow { color: #bfe7e0; }
+  .banner h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); margin: 14px 0 12px; max-width: 18ch; }
+  .banner p { color: #d8ebe7; max-width: 56ch; font-size: 1.05rem; }
+  .crumb { font-size: .85rem; font-weight: 600; color: #a9cbc5; margin-bottom: 6px; }
+
+  .hours { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow-sm); }
+  .hours h3 { font-size: 1.3rem; color: var(--navy); margin-bottom: 12px; }
+  .hours table { width: 100%; border-collapse: collapse; }
+  .hours td { padding: 12px 4px; border-bottom: 1px dashed var(--line); font-weight: 600; }
+  .hours td:last-child { text-align: right; color: var(--muted); }
+  .hours tr.today td { color: var(--teal); font-weight: 800; }
+  .hours tr.today td:first-child::after { content: "Today"; margin-left: 10px; font-size: .7rem; padding: 3px 8px; border-radius: 999px; background: var(--mint); vertical-align: middle; }
+  .map { border-radius: var(--radius); overflow: hidden; min-height: 420px; box-shadow: var(--shadow-sm); background: var(--mint); border: 1px solid var(--line); }
+  .map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; }
+  .status { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.14); font-weight: 700; font-size: .88rem; margin-top: 18px; width: fit-content; }
+
+  footer { background: #082827; color: #a9cbc5; padding: 64px 0 28px; }
+  .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; }
+  footer h4 { color: #fff; font-size: 1.05rem; margin-bottom: 12px; }
+  footer a:hover { color: var(--gold); }
+  .foot-links { display: grid; gap: 8px; font-weight: 600; }
+  .copy { border-top: 1px solid rgba(255,255,255,.1); margin-top: 40px; padding-top: 20px; font-size: .85rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  @media (max-width: 960px) {
+    .feature, .photo-row, .grid-2 { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .band .grid { grid-template-columns: 1fr 1fr; }
+    .strip .grid { grid-template-columns: 1fr; }
+    .strip .item { border-right: 0; border-bottom: 1px solid var(--line); }
+    .hero-float { display: none; }
+    .foot { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    .topbar .hide-sm { display: none; }
+    .burger { display: block; }
+    .nav .btn { display: none; }
+    .menu { position: fixed; inset: 0; background: var(--navy); flex-direction: column; justify-content: center; align-items: center; gap: 8px; clip-path: circle(0 at calc(100% - 40px) 40px); transition: clip-path .7s var(--ease); z-index: -1; }
+    body.menu-open .menu { clip-path: circle(150% at calc(100% - 40px) 40px); }
+    .menu a { color: #cfe4e0; font-size: 1.8rem; }
+    .menu a.active { color: var(--gold); }
+    .hero { height: 86vh; }
+    .hero::after { background: linear-gradient(0deg, rgba(8,40,39,.92) 0%, rgba(8,40,39,.6) 55%, rgba(8,40,39,.15) 100%); }
+    .hero-content { align-items: flex-end; padding-bottom: 90px; }
+    .cards { grid-template-columns: 1fr; }
+    section { padding: 64px 0; }
+    .viewer { height: 420px; }
+    .viewer .legend { display: none; }
+    .stage { height: 400px; }
+    .ring { width: 230px; height: 310px; margin: -155px 0 0 -115px; }
+    .cta { padding: 34px 24px; }
+    .banner { height: 360px; }
+    .foot { grid-template-columns: 1fr; }
+    .tag { font-size: .72rem; padding: 6px 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    .rv, .rise { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body data-page="home">
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div><div class="label">CRT Hospital</div>
+  <svg viewBox="0 0 320 60" fill="none"><path d="M0 30 H110 L125 30 L135 8 L150 52 L162 18 L172 38 L180 30 H320" stroke="#f2a93b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+</div>
+<div class="sweep" id="sweep"></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="grp">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Mon 7 AM – 7 PM · Tue–Sat 9 AM – 7 PM · Sun closed</span>
+      <span class="hide-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Pappammalpuram, Tamil Nadu 625536</span>
+    </div>
+    <span>Medical emergency: <b>108</b></span>
+  </div>
+</div>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="CRT Hospital home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span>
+      <span>CRT Hospital<small>CHARITABLE TRUST HOSPITAL</small></span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#home" data-link="home">Home</a></li>
+      <li><a href="#about" data-link="about">About</a></li>
+      <li><a href="#services" data-link="services">Care</a></li>
+      <li><a href="#visit" data-link="visit">Visit Us</a></li>
+    </ul>
+    <a href="#visit" class="btn btn-primary">Plan a visit</a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="page" data-page="home">
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg"><img src="images/pro/building.webp" alt="CRT Hospital building in Pappammalpuram with coconut palms and paved courtyard" fetchpriority="high" /></div>
+    <div class="wrap hero-content">
+      <div class="hero-copy">
+        <span class="eyebrow rise" style="--d:0">Charitable Trust Hospital · Pappammalpuram</span>
+        <h1 class="rise" style="--d:1">Care close to home, <em>for every family.</em></h1>
+        <p class="ta ta-name rise" style="--d:2">CRT மருத்துவமனை</p>
+        <p class="lead rise" style="--d:3">Serving Pappammalpuram, T.V. Renganathapuram and the villages around us with warm, dependable care, six days a week.</p>
+        <div class="hero-cta rise" style="--d:4">
+          <a href="#visit" class="btn btn-gold">Hours &amp; directions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="#about" class="btn btn-light">About the hospital</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-float" id="heroFloat">
+      <div class="fcard rise" style="--d:5"><span class="dot" id="heroDot"></span><div><b id="heroStatus">Checking hours…</b><small>India time</small></div></div>
+      <div class="fcard rise" style="--d:6"><span class="ic ic-gold"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.5 7.1.7-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.2l7.1-.7z"/></svg></span><div><b>4.9 / 5 rating</b><small>on Google reviews</small></div></div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap"><div class="grid rv">
+      <div class="item"><span class="ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><h3>Opening hours</h3><p>Mon 7 AM – 7 PM · Tue–Sat 9 AM – 7 PM<br>Closed on Sunday</p></div></div>
+      <div class="item"><span class="ic ic-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><h3>Location</h3><p>Pappammalpuram, via T.V. Renganathapuram, Tamil Nadu 625536</p></div></div>
+      <div class="item"><span class="ic ic-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M10 8h4l-1 6h4l2 5"/><path d="M11 12a5 5 0 1 0 5 6"/></svg></span><div><h3>Easy access</h3><p>Wheelchair-accessible entrance, restroom and seating. Free parking.</p></div></div>
+    </div></div>
+  </section>
+
+  <section>
+    <div class="wrap feature">
+      <figure class="photo3d rv">
+        <div class="frame"><div class="back"></div>
+          <img src="images/pro/photo1.webp" alt="CRT Hospital with the Sri Rathina Vinayagar temple and paved courtyard" loading="lazy" />
+          <span class="tag" style="right: 6%; top: 44%; transform: translateZ(90px);"><i></i>CRT Hospital</span>
+          <span class="tag" style="left: 3%; top: 24%; transform: translateZ(120px);"><i style="background: var(--gold)"></i>Vinayagar temple</span>
+          <span class="tag" style="left: 38%; bottom: 8%; transform: translateZ(70px);"><i style="background: var(--teal-2)"></i>Courtyard &amp; parking</span>
+        </div>
+      </figure>
+      <div>
+        <span class="eyebrow rv">Our campus</span>
+        <h2 class="h2 rv" style="--d:1">A calm, familiar place to get well.</h2>
+        <p class="lead rv" style="--d:2">Our two-storey hospital stands beside the Sri Rathina Vinayagar temple, surrounded by coconut palms. Patients wait on a shaded veranda and families can park right at the door.</p>
+        <ul class="checks">
+          <li class="rv" style="--d:3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Run as a charitable trust for the community</li>
+          <li class="rv" style="--d:4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Early opening on Mondays, 7 AM</li>
+          <li class="rv" style="--d:5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Hospital ambulance and a dedicated team</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap grid">
+      <div class="stat rv"><b data-count="4.9" data-dec="1">0</b><span>Google rating</span></div>
+      <div class="stat rv" style="--d:1"><b data-count="6">0</b><span>Days open a week</span></div>
+      <div class="stat rv" style="--d:2"><b data-count="12" data-suffix="h">0</b><span>Care on Mondays</span></div>
+      <div class="stat rv" style="--d:3"><b data-count="100" data-suffix="%">0</b><span>Free parking</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow rv">Explore in 3D</span><h2 class="h2 rv" style="--d:1">Walk around our campus.</h2>
+        <p class="lead rv" style="--d:2">An interactive model of the hospital, the temple and the courtyard. Drag to turn it.</p></div>
+      </div>
+      <div class="viewer rv" id="viewer" style="--d:2">
+        <div class="legend">
+          <span><i style="background:#f3bcbc"></i>Hospital</span>
+          <span><i style="background:#3f6fb5"></i>Vinayagar temple</span>
+          <span><i style="background:#c9806f"></i>Courtyard</span>
+        </div>
+        <div class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M8 12h8M5 9l-3 3 3 3M19 9l3 3-3 3"/></svg>Drag to rotate</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow rv">Photo gallery</span><h2 class="h2 rv" style="--d:1">A look around CRT Hospital</h2></div>
+        <div class="gal-ctrl rv" style="--d:2">
+          <button id="galPrev" aria-label="Previous photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button id="galNext" aria-label="Next photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="stage rv" id="stage" style="--d:2"><div class="ring" id="ring"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap"><div class="cta rv">
+      <div><h2>Need to see a doctor this week?</h2><p>Check today's hours and get directions to the hospital.</p></div>
+      <a href="#visit" class="btn btn-gold">Plan your visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div></div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" data-page="about">
+  <section class="banner">
+    <img src="images/pro/photo1.webp" alt="" data-parallax />
+    <div class="wrap">
+      <div class="crumb">Home / About</div>
+      <span class="eyebrow">About us</span>
+      <h1>A hospital built by and for the community.</h1>
+      <p>A charitable trust hospital in Pappammalpuram, giving families from the surrounding villages a trusted place for care without travelling far.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap grid-2">
+      <div class="card tilt value rv" style="--d:1"><span class="shine"></span><span class="ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/></svg></span><div><h3>Compassion</h3><p>Every patient is treated like family, with patience, respect and time to listen.</p></div></div>
+      <div class="card tilt value rv" style="--d:2"><span class="shine"></span><span class="ic ic-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><div><h3>Close to home</h3><p>Care within reach of the villages we serve, so no one has to delay a visit.</p></div></div>
+      <div class="card tilt value rv" style="--d:3"><span class="shine"></span><span class="ic ic-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4.5 4.5 0 0 1 7 0"/></svg></span><div><h3>Community first</h3><p>As a charitable trust, our purpose is service to the people of this area.</p></div></div>
+      <div class="card tilt value rv" style="--d:4"><span class="shine"></span><span class="ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="4.5" r="1.8"/><path d="M10 8h4l-1 6h4l2 5"/><path d="M11 12a5 5 0 1 0 5 6"/></svg></span><div><h3>Open to everyone</h3><p>Step-free access, accessible restroom and seating, and free parking.</p></div></div>
+    </div>
+  </section>
+  <section style="padding-top: 0;">
+    <div class="wrap">
+      <span class="eyebrow rv">Our people</span>
+      <h2 class="h2 rv" style="--d:1; margin-bottom: 40px;">The people behind CRT Hospital</h2>
+      <div class="photo-row">
+        <figure class="photo3d rv" style="--d:1">
+          <div class="frame"><div class="back"></div><img src="images/pro/team.webp" alt="CRT Hospital team standing beside the hospital ambulance" loading="lazy" /></div>
+          <figcaption><b>Our team</b><span>The doctors, nurses and staff of CRT Hospital, with our hospital ambulance.</span></figcaption>
+        </figure>
+        <figure class="photo3d rv" style="--d:2">
+          <div class="frame"><div class="back" style="background: var(--teal-2);"></div><img src="images/pro/trustee.webp" alt="Trustees of the CRT Hospital charitable trust" loading="lazy" style="object-position: center 30%;" /></div>
+          <figcaption><b>Our trustees</b><span>The trustees whose care and commitment keep CRT Hospital serving the community.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<!-- NOTE: Update this list to match the hospital's actual services. -->
+<div class="page" data-page="services">
+  <section class="banner">
+    <img src="images/pro/waitingarea.webp" alt="" data-parallax style="object-position: center 40%;" />
+    <div class="wrap">
+      <div class="crumb">Home / Care</div>
+      <span class="eyebrow">Care we offer</span>
+      <h1>Everyday care, done with attention.</h1>
+      <p>From a routine check-up to guidance on your next step, our team is here to help. Please ask at the front desk about the services available on the day of your visit.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap cards">
+      <article class="card tilt rv" style="--d:1"><span class="shine"></span><span class="num">01</span><h3>General consultation</h3><p>See a doctor for fever, cough, pain, infections and everyday health concerns.</p></article>
+      <article class="card tilt rv" style="--d:2"><span class="shine"></span><span class="num">02</span><h3>First aid</h3><p>Prompt attention for minor injuries, cuts, burns and wounds that need dressing.</p></article>
+      <article class="card tilt rv" style="--d:3"><span class="shine"></span><span class="num">03</span><h3>Women &amp; child health</h3><p>Check-ups and advice for mothers, infants and growing children.</p></article>
+      <article class="card tilt rv" style="--d:4"><span class="shine"></span><span class="num">04</span><h3>Care for elders</h3><p>Regular follow-up for blood pressure, sugar and other long-term conditions.</p></article>
+      <article class="card tilt rv" style="--d:5"><span class="shine"></span><span class="num">05</span><h3>Health awareness</h3><p>Guidance on nutrition, hygiene and preventive care for the whole family.</p></article>
+      <article class="card tilt rv" style="--d:6"><span class="shine"></span><span class="num">06</span><h3>Referral support</h3><p>When specialist care is needed, we help you understand where to go next.</p></article>
+    </div>
+  </section>
+  <section style="padding-top: 0;">
+    <div class="wrap feature">
+      <figure class="photo3d rv">
+        <div class="frame"><div class="back" style="background: var(--rose);"></div><img src="images/pro/waitingarea.webp" alt="Patients seated on the waiting veranda at CRT Hospital with a nurse attending" loading="lazy" /></div>
+      </figure>
+      <div>
+        <span class="eyebrow rv">Our veranda</span>
+        <h2 class="h2 rv" style="--d:1">Comfortable waiting, attentive nurses.</h2>
+        <p class="lead rv" style="--d:2">Patients from nearby villages wait in comfort on our shaded veranda while our nurses attend to them.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= VISIT ================= -->
+<div class="page" data-page="visit">
+  <section class="banner">
+    <img src="images/pro/building.webp" alt="" data-parallax />
+    <div class="wrap">
+      <div class="crumb">Home / Visit us</div>
+      <span class="eyebrow">Visit us</span>
+      <h1>Find your way to CRT Hospital.</h1>
+      <span class="status"><span class="dot" id="visitDot"></span><span id="visitStatus">Checking hours…</span></span>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="grid-2" style="grid-template-columns: 1fr 1.2fr;">
+        <div class="hours rv"><h3>Opening hours</h3><table id="hoursTable"></table><p style="margin-top: 14px; color: var(--muted); font-size: .9rem;">Hours may differ on public holidays and festival days.</p></div>
+        <div class="map rv" style="--d:2"><iframe title="Map to CRT Hospital" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=CRT+Hospital,+Pappammalpuram,+Tamil+Nadu+625536&z=14&output=embed"></iframe></div>
+      </div>
+      <div class="cards" style="margin-top: 22px;">
+        <article class="card tilt rv" style="--d:1"><span class="shine"></span><span class="ic ic-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <h3>Address</h3><p>CRT Hospital, Pappammalpuram<br>via T.V. Renganathapuram<br>Tamil Nadu 625536</p>
+          <a class="btn btn-outline" style="margin-top: 16px;" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=CRT+Hospital,+Pappammalpuram,+Tamil+Nadu+625536">Get directions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+        <article class="card tilt rv" style="--d:2"><span class="shine"></span><span class="ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+          <h3>Call us</h3>
+          <!-- TODO: replace with the hospital's phone number -->
+          <p>Phone: <a href="tel:+910000000000" style="font-weight: 800; color: var(--teal);">+91 00000 00000</a><br>Call during opening hours.</p></article>
+        <article class="card tilt rv" style="--d:3"><span class="shine"></span><span class="ic ic-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="8" width="18" height="10" rx="2"/><path d="M7 8l2-3h6l2 3M7 18v2M17 18v2"/></svg></span>
+          <h3>Parking &amp; access</h3><p>Free parking on site. Wheelchair-accessible parking, entrance, restroom and seating.</p></article>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a href="#home" class="brand" style="color:#fff;"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="#fff"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span><span>CRT Hospital</span></a>
+        <p class="ta" style="margin: 14px 0 6px; color: #ffd79c;">CRT மருத்துவமனை</p>
+        <p>A charitable trust hospital serving Pappammalpuram, T.V. Renganathapuram and nearby villages.</p></div>
+      <div><h4>Visit</h4><p>Pappammalpuram, via T.V. Renganathapuram,<br>Tamil Nadu 625536</p><p style="margin-top: 10px;">Mon 7 AM – 7 PM<br>Tue–Sat 9 AM – 7 PM · Sun closed</p></div>
+      <div><h4>Explore</h4><div class="foot-links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Care</a><a href="#visit">Visit us</a></div></div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> CRT Hospital · Charitable Trust</span><span>In a medical emergency, call 108.</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>window.THREE || document.write('<script src="vendor/three.min.js"><\/script>');</script>
+<script>
+/* =========================================================
+   1. 3D campus viewer (Three.js) — drag to orbit, auto-rotate
+   ========================================================= */
+const Campus3D = (() => {
+  const host = document.getElementById('viewer');
+  if (!window.THREE) { document.body.classList.add('no3d'); return; }
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  host.prepend(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0xeaf3ef, 34, 80);
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 200);
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x8fbfae, 0.8));
+  const sunLight = new THREE.DirectionalLight(0xfff1d6, 1.0);
+  sunLight.position.set(10, 16, 8);
+  sunLight.castShadow = true;
+  sunLight.shadow.mapSize.set(2048, 2048);
+  Object.assign(sunLight.shadow.camera, { left: -14, right: 14, top: 14, bottom: -14, near: 1, far: 50 });
+  sunLight.shadow.bias = -0.0008;
+  scene.add(sunLight);
+
+  const M = c => new THREE.MeshStandardMaterial({ color: c, roughness: .85, metalness: 0, flatShading: true });
+  // palette taken from the real building photo (pink walls, red tiled roofs, maroon pillars, red pavers)
+  const mat = {
+    wall: M(0xf3bcbc), trim: M(0xfbe8e4), tile: M(0xb7313b), maroon: M(0x8e2a2e), pave: M(0xc9806f),
+    red: M(0xe23c4f), glass: new THREE.MeshStandardMaterial({ color: 0x78b3dc, roughness: .15, metalness: .2 }),
+    door: M(0x6d2a2c), grass: M(0x8cc9ae), grass2: M(0x76b99b), soil: M(0xc9a57a),
+    trunk: M(0x8a6a45), leaf: M(0x2f8f6a), leaf2: M(0x3ea57b), white: M(0xffffff), gold: M(0xf2a93b),
+    blue: M(0x3f6fb5), teal: M(0x49a7a0), steel: M(0x3b4a57)
+  };
+  const box = (w, h, d, m, x, y, z, parent) => {
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m);
+    mesh.position.set(x, y, z); mesh.castShadow = true; mesh.receiveShadow = true;
+    (parent || world).add(mesh); return mesh;
+  };
+  const cyl = (rt, rb, h, m, x, y, z, parent, seg = 24) => {
+    const mesh = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m);
+    mesh.position.set(x, y, z); mesh.castShadow = true; mesh.receiveShadow = true;
+    (parent || world).add(mesh); return mesh;
+  };
+
+  const world = new THREE.Group(); scene.add(world);
+
+  // island base + red paver courtyard
+  const island = new THREE.Mesh(new THREE.CylinderGeometry(11, 9.5, 1.4, 40), mat.soil);
+  island.position.y = -0.75; island.receiveShadow = true; world.add(island);
+  const lawn = new THREE.Mesh(new THREE.CylinderGeometry(11.05, 11.05, 0.2, 40), mat.grass);
+  lawn.position.y = -0.02; lawn.receiveShadow = true; world.add(lawn);
+  const court = cyl(8.2, 8.2, 0.08, mat.pave, -1, 0.1, 2.2, world, 40); court.castShadow = false;
+
+  // hospital building — two storeys, pink walls, red tiled sloped roofs
+  const hosp = new THREE.Group(); hosp.position.set(1.2, 0, -0.6); world.add(hosp);
+  box(8, 2.3, 4, mat.wall, 0, 1.25, 0, hosp);                 // ground floor
+  box(8.2, 0.2, 4.2, mat.trim, 0, 2.45, 0, hosp);             // floor slab
+  // front veranda: maroon pillars + sloped red tile roof
+  [-3.7, -1.25, 1.25, 3.7].forEach(x => { box(0.28, 2.1, 0.28, mat.maroon, x, 1.15, 3.1, hosp); box(0.4, 0.2, 0.4, mat.trim, x, 0.1, 3.1, hosp); });
+  const vRoof = box(8.8, 0.14, 1.9, mat.tile, 0, 2.55, 2.75, hosp); vRoof.rotation.x = 0.32;
+  box(8.4, 0.12, 1.3, mat.trim, 0, 0.14, 2.55, hosp);          // veranda floor
+  // ground floor windows + door
+  [-2.6, 2.6].forEach(x => box(1.5, 1.1, 0.08, mat.glass, x, 1.45, 2.02, hosp));
+  box(1.4, 1.9, 0.08, mat.door, 0, 1.05, 2.03, hosp);
+  // waiting-area benches on the veranda
+  [-2.5, 2.5].forEach(x => box(1.6, 0.35, 0.45, mat.steel, x, 0.45, 2.55, hosp));
+  // first floor
+  box(7.2, 2, 3.2, mat.wall, 0, 3.55, -0.3, hosp);
+  [-2.3, 0, 2.3].forEach(x => { box(1.7, 0.95, 0.08, mat.glass, x, 3.7, 1.33, hosp); box(1.9, 0.1, 0.16, mat.trim, x, 3.18, 1.36, hosp); });
+  // balcony railing on the slab
+  box(8, 0.5, 0.12, mat.trim, 0, 2.8, 1.95, hosp);
+  [-3.4, -1.7, 0, 1.7, 3.4].forEach(x => box(0.3, 0.65, 0.3, mat.wall, x, 2.85, 1.95, hosp));
+  const uRoof = box(7.9, 0.14, 1.5, mat.tile, 0, 4.6, 1.45, hosp); uRoof.rotation.x = 0.36;
+  // stepped pink parapet on top
+  box(7.4, 0.55, 3.4, mat.wall, 0, 4.85, -0.3, hosp);
+  [-3, -1.6, 1.6, 3].forEach(x => box(0.7, 0.35, 0.25, mat.wall, x, 5.28, 1.3, hosp));
+  box(1.6, 0.6, 0.25, mat.wall, 0, 5.4, 1.3, hosp);
+  // red cross sign on the parapet
+  box(0.3, 0.9, 0.12, mat.red, 0, 5.45, 1.46, hosp); box(0.9, 0.3, 0.12, mat.red, 0, 5.45, 1.46, hosp);
+  // water tank on roof
+  cyl(0.5, 0.5, 0.8, mat.white, -2.4, 5.55, -1.1, hosp, 16);
+  // wheelchair ramp
+  const ramp = box(1.2, 0.08, 2, mat.trim, 4.6, 0.16, 2.8, hosp); ramp.rotation.x = -0.08;
+
+  // courtyard: round planter + decorative lamp post (as in the photo)
+  const planter = new THREE.Group(); planter.position.set(-0.4, 0, 4.6); world.add(planter);
+  cyl(1.35, 1.45, 0.3, mat.wall, 0, 0.25, 0, planter); cyl(1.4, 1.4, 0.08, mat.maroon, 0, 0.42, 0, planter);
+  cyl(0.8, 0.85, 0.35, mat.wall, 0, 0.6, 0, planter);
+  for (let i = 0; i < 7; i++) { const a = i / 7 * Math.PI * 2; const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.22, 0), i % 2 ? mat.leaf2 : mat.gold); b.position.set(Math.cos(a) * 1.05, 0.55, Math.sin(a) * 1.05); planter.add(b); }
+  const lamp = new THREE.Group(); lamp.position.set(1.6, 0, 3.6); world.add(lamp);
+  cyl(0.07, 0.1, 3.4, mat.steel, 0, 1.7, 0, lamp, 8);
+  box(1.2, 0.06, 0.06, mat.gold, 0, 2.9, 0, lamp);
+  const glow = new THREE.MeshStandardMaterial({ color: 0xfff4d0, emissive: 0xffe29a, emissiveIntensity: .8 });
+  [[0, 3.55], [-0.55, 3.05], [0.55, 3.05]].forEach(([x, y]) => { const g = new THREE.Mesh(new THREE.SphereGeometry(x ? 0.16 : 0.24, 16, 12), glow); g.position.set(x, y, 0); lamp.add(g); });
+
+  // Sri Rathina Vinayagar temple mandapam beside the hospital
+  const shrine = new THREE.Group(); shrine.position.set(-6.6, 0, 1.2); shrine.rotation.y = 0.35; world.add(shrine);
+  box(3.4, 0.5, 3.2, mat.trim, 0, 0.25, 0, shrine);
+  [[-1.3, -1.2], [1.3, -1.2], [-1.3, 1.2], [1.3, 1.2]].forEach(([x, z]) => box(0.32, 2.2, 0.32, mat.trim, x, 1.6, z, shrine));
+  box(1.6, 1.6, 1.2, mat.wall, 0, 1.3, -0.6, shrine);                     // sanctum
+  box(3.8, 0.25, 3.6, mat.teal, 0, 2.8, 0, shrine);                        // roof slab
+  const eave = box(3.9, 0.08, 0.9, mat.blue, 0, 2.65, 1.9, shrine); eave.rotation.x = 0.4;
+  box(3.2, 0.5, 0.6, mat.blue, 0, 3.15, 1.3, shrine);                      // ornate front band
+  box(2.2, 0.55, 0.5, mat.gold, 0, 3.6, 1.3, shrine);
+  const arch = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.12, 8, 20, Math.PI), mat.teal);
+  arch.position.set(0, 3.9, 1.3); arch.castShadow = true; shrine.add(arch);
+  [[-1.4, 0xf2f2f2], [1.4, 0xf2f2f2], [-0.7, 0xe9a23b], [0.7, 0x3f6fb5]].forEach(([x, c]) => { const s = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 8), M(c)); s.position.set(x, 3.55, 1.35); shrine.add(s); });
+  const tower = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.6, 8), mat.gold);
+  tower.position.y = 4.35; tower.position.z = 1.3; tower.castShadow = true; shrine.add(tower);
+
+  // coconut palms
+  const palms = [];
+  function palm(x, z, h, lean, rot) {
+    const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = rot; world.add(g);
+    const segs = 7; let px = 0, py = 0;
+    for (let i = 0; i < segs; i++) {
+      const s = new THREE.Mesh(new THREE.CylinderGeometry(0.17 - i * .012, 0.22 - i * .012, h / segs + .05, 7), mat.trunk);
+      px += lean * (i / segs) * 0.35; py += h / segs;
+      s.position.set(px, py - h / segs / 2, 0); s.rotation.z = -lean * 0.12; s.castShadow = true; g.add(s);
+    }
+    const crown = new THREE.Group(); crown.position.set(px, py, 0); g.add(crown);
+    for (let i = 0; i < 9; i++) {
+      const leaf = new THREE.Mesh(new THREE.ConeGeometry(0.34, 2.6, 4, 1), i % 2 ? mat.leaf : mat.leaf2);
+      leaf.scale.z = 0.18; leaf.geometry.translate(0, 1.3, 0);
+      leaf.rotation.set(0, (i / 9) * Math.PI * 2, 0);
+      const holder = new THREE.Group(); holder.rotation.y = (i / 9) * Math.PI * 2; crown.add(holder);
+      leaf.rotation.set(0, 0, -1.15 - Math.random() * .35); leaf.castShadow = true; holder.add(leaf);
+    }
+    for (let i = 0; i < 3; i++) { const c = new THREE.Mesh(new THREE.SphereGeometry(0.18, 6, 5), mat.trunk); c.position.set(Math.cos(i * 2.1) * .25, -.2, Math.sin(i * 2.1) * .25); crown.add(c); }
+    palms.push({ crown, phase: Math.random() * 6 });
+  }
+  palm(-5.2, -2.6, 7.5, 1, 0.3); palm(5.4, -2.2, 8.2, -1, 2.8); palm(8.2, 3.4, 6.4, 1, 1.4);
+  palm(-8.6, 4.6, 5.6, -1, 4); palm(-8.3, -2.2, 6.8, 1, .8); palm(8.5, -4.5, 7, -1, 2);
+  palm(-2.8, -6.8, 7.4, 1, 3.6); palm(2.6, -7.2, 6.6, -1, 5);
+
+  // bushes & flowers
+  for (let i = 0; i < 22; i++) {
+    const a = Math.random() * Math.PI * 2, r = 9 + Math.random() * 1.6;
+    const x = Math.cos(a) * r, z = Math.sin(a) * r;
+        const b = new THREE.Mesh(new THREE.IcosahedronGeometry(0.35 + Math.random() * .35, 0), i % 5 ? mat.grass2 : mat.gold);
+    b.position.set(x, .25, z); b.castShadow = true; world.add(b);
+  }
+
+  // sun + clouds
+  const sun = new THREE.Mesh(new THREE.SphereGeometry(2.2, 32, 16), new THREE.MeshBasicMaterial({ color: 0xf6c667 }));
+  sun.position.set(-18, 16, -30); scene.add(sun);
+  const clouds = [];
+  for (let i = 0; i < 6; i++) {
+    const c = new THREE.Group();
+    for (let j = 0; j < 4; j++) {
+      const p = new THREE.Mesh(new THREE.SphereGeometry(0.8 + Math.random() * .6, 10, 8), mat.white);
+      p.position.set(j * 1.1 - 1.6, Math.random() * .4, Math.random() * .6); c.add(p);
+    }
+    c.position.set(-25 + i * 9, 11 + Math.random() * 5, -14 - Math.random() * 10);
+    scene.add(c); clouds.push(c);
+  }
+
+  // ---- orbit camera ----
+  let az = 0.55, el = 0.42, dist = 30, vAz = 0, dragging = false, lastX = 0, lastY = 0, idle = 0, visible = false;
+  const target = new THREE.Vector3(0, 2.2, 0);
+  host.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; lastY = e.clientY; host.setPointerCapture(e.pointerId); });
+  host.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    vAz = (e.clientX - lastX) * -0.006; az += vAz;
+    el = Math.min(1.1, Math.max(0.15, el + (e.clientY - lastY) * 0.004));
+    lastX = e.clientX; lastY = e.clientY;
+  });
+  host.addEventListener('pointerup', () => { dragging = false; idle = performance.now(); });
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(host);
+
+  function resize() {
+    const w = host.clientWidth, h = host.clientHeight;
+    renderer.setSize(w, h, false); camera.aspect = w / h;
+    dist = w < 700 ? 38 : 30; camera.updateProjectionMatrix();
+  }
+  addEventListener('resize', resize); resize();
+
+  const clock = new THREE.Clock();
+  (function loop(now) {
+    requestAnimationFrame(loop);
+    if (!visible || !host.offsetParent) return;           // only render when on screen
+    const t = clock.getElapsedTime();
+    if (!dragging) { vAz *= .94; az += vAz; if (!reduced && now - idle > 2000) az += .0022; }
+    camera.position.set(target.x + dist * Math.cos(el) * Math.sin(az), target.y + dist * Math.sin(el), target.z + dist * Math.cos(el) * Math.cos(az));
+    camera.lookAt(target);
+    if (!reduced) {
+      palms.forEach(p => { p.crown.rotation.z = Math.sin(t * 1.3 + p.phase) * .06; p.crown.rotation.x = Math.cos(t * 1.1 + p.phase) * .04; });
+      clouds.forEach((c, i) => { c.position.x += .006 + i * .001; if (c.position.x > 30) c.position.x = -30; });
+    }
+    renderer.render(scene, camera);
+  })(0);
+})();
+
+/* =========================================================
+   2. Router with 3D page transitions
+   ========================================================= */
+(() => {
+  const pages = [...document.querySelectorAll('.page')];
+  const links = [...document.querySelectorAll('[data-link]')];
+  const sweep = document.getElementById('sweep');
+  const titles = { home: 'CRT Hospital · Pappammalpuram', about: 'About · CRT Hospital', services: 'Care · CRT Hospital', visit: 'Visit Us · CRT Hospital' };
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = null, busy = false;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in'); io.unobserve(e.target);
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+    if (e.target.matches('[data-count]')) countUp(e.target);
+  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+
+  function countUp(el) {
+    const target = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), suf = el.dataset.suffix || '', t0 = performance.now();
+    const tick = t => { const p = Math.min((t - t0) / 1600, 1); el.textContent = (target * (1 - Math.pow(1 - p, 4))).toFixed(dec) + suf; if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }
+
+  function activate(name) {
+    pages.forEach(p => p.classList.toggle('active', p.dataset.page === name));
+    links.forEach(a => a.classList.toggle('active', a.dataset.link === name));
+    document.body.dataset.page = name; document.title = titles[name];
+    const page = pages.find(p => p.dataset.page === name);
+    page.querySelectorAll('.rv').forEach(el => { el.classList.remove('in'); io.observe(el); });
+    window.scrollTo(0, 0); current = name; dispatchEvent(new Event('resize')); return page;
+  }
+
+  async function go(name) {
+    if (!titles[name]) name = 'home';
+    if (name === current || busy) return;
+    busy = true; document.body.classList.remove('menu-open');
+    if (reduced || !current) { activate(name); busy = false; return; }
+    sweep.classList.remove('run'); void sweep.offsetWidth; sweep.classList.add('run');
+    const old = pages.find(p => p.dataset.page === current);
+    old.classList.add('leave'); await wait(560); old.classList.remove('leave');
+    const page = activate(name);
+    page.classList.add('enter'); await wait(1000); page.classList.remove('enter');
+    busy = false;
+  }
+
+  addEventListener('hashchange', () => go(location.hash.slice(1)));
+  const header = document.getElementById('header');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 40), { passive: true });
+  document.getElementById('burger').onclick = () => document.body.classList.toggle('menu-open');
+
+  activate(location.hash.slice(1) in titles ? location.hash.slice(1) : 'home');
+  setTimeout(() => document.getElementById('loader').classList.add('done'), reduced ? 0 : 1200);
+})();
+
+/* =========================================================
+   3. Hero 3D parallax + banner parallax
+   ========================================================= */
+(() => {
+  const hero = document.getElementById('hero'), bg = document.getElementById('heroBg'), fl = document.getElementById('heroFloat');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let mx = 0, my = 0, sx = 0, sy = 0;
+  hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5; });
+  hero.addEventListener('pointerleave', () => { mx = 0; my = 0; });
+  (function loop() {
+    requestAnimationFrame(loop);
+    sx += (mx - sx) * .06; sy += (my - sy) * .06;
+    const s = Math.min(scrollY, innerHeight);
+    if (document.body.dataset.page === 'home') {
+      bg.style.transform = `translate3d(${sx * -24}px, ${sy * -16 + s * .3}px, 0) rotateY(${sx * 3}deg) rotateX(${sy * -2}deg) scale(1.04)`;
+      fl.style.transform = `translate3d(${sx * 30}px, ${sy * 20 - s * .15}px, 0) rotateY(${sx * -10}deg) rotateX(${sy * 8}deg)`;
+    }
+    document.querySelectorAll('.page.active [data-parallax]').forEach(img => img.style.transform = `translate3d(0, ${Math.min(scrollY, 500) * .25}px, 0) scale(1.02)`);
+  })();
+})();
+
+/* =========================================================
+   4. 3D tilt for cards and photos
+   ========================================================= */
+document.querySelectorAll('.tilt').forEach(card => {
+  card.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    card.style.transform = `rotateX(${(.5 - y) * 10}deg) rotateY(${(x - .5) * 12}deg) translateZ(8px)`;
+    card.style.setProperty('--mx', x * 100 + '%'); card.style.setProperty('--my', y * 100 + '%');
+  });
+  card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+});
+document.querySelectorAll('.photo3d').forEach(wrap => {
+  const frame = wrap.querySelector('.frame'), rest = 'rotateX(3deg) rotateY(-7deg)';
+  wrap.addEventListener('pointermove', e => {
+    const r = frame.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+    frame.style.transform = `rotateX(${(.5 - y) * 12}deg) rotateY(${(x - .5) * 16}deg)`;
+    frame.style.setProperty('--mx', x * 100 + '%'); frame.style.setProperty('--my', y * 100 + '%');
+  });
+  wrap.addEventListener('pointerleave', () => frame.style.transform = rest);
+  frame.style.transform = rest;
+});
+
+/* =========================================================
+   5. 3D photo carousel — edit this list to add or re-caption photos
+   ========================================================= */
+const PHOTOS = [
+  { src: 'images/pro/building.webp',    caption: 'CRT Hospital' },
+  { src: 'images/pro/photo1.webp',      caption: 'Hospital, temple & courtyard' },
+  { src: 'images/pro/waitingarea.webp', caption: 'Our waiting veranda' },
+  { src: 'images/pro/team.webp',        caption: 'Our team & ambulance' },
+  { src: 'images/pro/trustee.webp',     caption: 'Our trustees' }
+];
+(() => {
+  const ring = document.getElementById('ring'), stage = document.getElementById('stage');
+  const n = PHOTOS.length, step = 360 / n;
+  const radius = () => innerWidth < 760 ? 290 : 430;
+  const slides = PHOTOS.map(p => {
+    const f = document.createElement('figure'); f.className = 'slide';
+    const img = new Image(); img.alt = p.caption; img.src = p.src; img.decoding = 'async';
+    const cap = document.createElement('figcaption'); cap.textContent = p.caption;
+    f.append(img, cap); ring.append(f); return f;
+  });
+  const place = () => slides.forEach((s, i) => s.style.transform = `rotateY(${i * step}deg) translateZ(${radius()}px)`);
+  place(); addEventListener('resize', place);
+  let angle = 0, vel = 0, dragging = false, lastX = 0, target = null, idle = 0;
+  stage.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; target = null; stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener('pointermove', e => { if (!dragging) return; vel = (e.clientX - lastX) * .25; lastX = e.clientX; angle += vel; });
+  stage.addEventListener('pointerup', () => { dragging = false; idle = performance.now(); });
+  const snap = dir => { target = Math.round((angle + dir * step) / step) * step; idle = performance.now(); };
+  document.getElementById('galPrev').onclick = () => snap(1);
+  document.getElementById('galNext').onclick = () => snap(-1);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  (function tick(now) {
+    if (target !== null) { angle += (target - angle) * .08; if (Math.abs(target - angle) < .05) target = null; }
+    else if (!dragging) { vel *= .94; angle += vel; if (!reduced && now - idle > 2500) angle -= .1; }
+    ring.style.transform = `translateZ(-${radius()}px) rotateX(-5deg) rotateY(${angle}deg)`;
+    requestAnimationFrame(tick);
+  })(0);
+})();
+
+/* =========================================================
+   6. Live open / closed status (India time)
+   ========================================================= */
+(() => {
+  const HOURS = [null, [7, 19], [9, 19], [9, 19], [9, 19], [9, 19], [9, 19]];
+  const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const fmt = h => (h % 12 || 12) + (h < 12 ? ' AM' : ' PM');
+  const now = () => {
+    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Kolkata', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
+    const g = t => parts.find(p => p.type === t).value;
+    return { day: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')), h: (+g('hour') % 24) + (+g('minute')) / 60 };
+  };
+  function paint() {
+    const { day, h } = now(), today = HOURS[day];
+    let open = false, text;
+    if (today && h >= today[0] && h < today[1]) { open = true; text = 'Open now · closes ' + fmt(today[1]); }
+    else if (today && h < today[0]) text = 'Closed now · opens ' + fmt(today[0]) + ' today';
+    else { let d = (day + 1) % 7; while (!HOURS[d]) d = (d + 1) % 7; text = 'Closed · opens ' + DAYS[d] + ' ' + fmt(HOURS[d][0]); }
+    [['heroDot', 'heroStatus'], ['visitDot', 'visitStatus']].forEach(([d, t]) => { document.getElementById(d).classList.toggle('open', open); document.getElementById(t).textContent = text; });
+    document.getElementById('hoursTable').innerHTML = [1, 2, 3, 4, 5, 6, 0].map(i => `<tr class="${i === day ? 'today' : ''}"><td>${DAYS[i]}</td><td>${HOURS[i] ? fmt(HOURS[i][0]) + ' – ' + fmt(HOURS[i][1]) : 'Closed'}</td></tr>`).join('');
+  }
+  paint(); setInterval(paint, 60000);
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
